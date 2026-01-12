@@ -64,22 +64,32 @@ unsigned int Citizen::_count_day = 0;
         {
             _money -= 1000;
             _home = true;
+            _happiness += 20;
         }
 
     //money
         void Citizen::receive_salary(int money)
         {
             _money += money;
+            _happiness += 20;
         }
         void Citizen::pay_daily_expenses()
         {
             if(_home)
             {
                 _money -= 5;
+                if(_count_day%7 == 0)
+                {
+                _happiness -= 1;
+                }
             }
             if(!_home)
             {
                 _money -= 2;
+                if(_count_day%7 == 0)
+                {
+                _happiness -=2;
+                }
             }
             
         }
