@@ -19,6 +19,10 @@ class Citizen
         short _happiness;
         bool _job;
         bool _home;
+        void _decrease_happiness(short int);
+        void _increase_happiness(short int);
+        void _add_money(short int);
+        void _spend_money(short int);
 
     public:
         static unsigned int _counter;

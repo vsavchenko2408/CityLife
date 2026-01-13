@@ -9,7 +9,7 @@ unsigned int Citizen::_count_day = 0;
             {
                 if(_count_day%30 == 0)
                 {
-                    _happiness -= 5;
+                    _decrease_happiness(5);
                 }
             }
             if(_job)
@@ -62,34 +62,32 @@ unsigned int Citizen::_count_day = 0;
         }
         void Citizen::buy_home()
         {
-            _money -= 1000;
+            _spend_money(1000);
             _home = true;
-            _happiness += 20;
+            _increase_happiness(20);
         }
 
     //money
         void Citizen::receive_salary(int money)
         {
-            _money += money;
-            _happiness += 20;
+            _add_money(money);
+            _increase_happiness(20);
         }
         void Citizen::pay_daily_expenses()
         {
             if(_home)
             {
-                _money -= 5;
+                _spend_money(5);
                 if(_count_day%7 == 0)
                 {
-                _happiness -= 1;
+                _decrease_happiness(1);
                 }
             }
             if(!_home)
             {
-                _money -= 2;
+                _spend_money(2);
                 if(_count_day%7 == 0)
-                {
-                _happiness -=2;
-                }
+                _decrease_happiness(2);
             }
             
         }
@@ -124,8 +122,32 @@ unsigned int Citizen::_count_day = 0;
             std::cout << "Money: " << get_money() << std::endl;
             std::cout << "+++++++++++++++++++++++++++++++++++++" << std::endl;
         }
-
-
+        //private
+        void Citizen::_decrease_happiness(short int decrease)
+        {
+            if((_happiness - decrease) > 0)
+            {
+                _happiness -= decrease;
+            }
+        }
+        void Citizen::_increase_happiness(short int increase)
+        {
+            if((increase + _happiness) <= 100)
+            {
+                _happiness +=increase;
+            }
+        }
+        void Citizen::_add_money(short int add_money)
+        {
+            _money += add_money;
+        }
+        void Citizen::_spend_money(short int spend_money)
+        {
+            if((_money - spend_money) > 0)
+            {
+                _money -= spend_money;
+            }
+        }
     //constr
         Citizen::Citizen() : _id(_counter + 1), _age(18), _money(100), _happiness(50), _profession(engeneer), _job(true), _home(false)
         {
