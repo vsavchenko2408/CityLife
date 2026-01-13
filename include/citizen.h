@@ -26,8 +26,8 @@ class Citizen
 
     public:
         static unsigned int _counter;
-        static unsigned int _count_day;  
-        void update_tick();
+ 
+        void update_tick(const int& _count_day);
         void apply_event_effect();
     //job
         void assign_job(short job_id);
@@ -38,16 +38,17 @@ class Citizen
         void buy_home();
     //money
         void receive_salary(int money);
-        void pay_daily_expenses();
+        void pay_daily_expenses(const int& _count_day);
         int get_money() const;
     //status
         short get_happiness() const;
         Profession get_profession() const;
-        void show_info() const;
+        void show_info(const int& _count_day) const;
     //constr
         Citizen();
        // Citizen(...) = delete;
         ~Citizen();
 };
+
 
 #endif

@@ -1,15 +1,17 @@
 #include <iostream>
 #include <thread> 
 #include "../include/citizen.h"
+#include "../include/city.h"
 
 int main()
 {
-    Citizen c;
-    while(Citizen::_count_day < 200)
+    City c;
+    for(int i = 0; i < 12; i++)
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        c.update_tick();
-        c.show_info();
+    c.add_citizen();
+    c.add_citizen();
     }
+    c.run(200);
+    c.print_report();
 
 }

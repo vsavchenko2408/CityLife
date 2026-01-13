@@ -1,10 +1,10 @@
 #include "../../include/citizen.h"
 #include <iostream>
 unsigned int Citizen::_counter = 0;
-unsigned int Citizen::_count_day = 0;
-        void Citizen::update_tick()
+
+        void Citizen::update_tick(const int& _count_day)
         {
-            _count_day++;
+
             if(!_job)
             {
                 if(_count_day%30 == 0)
@@ -24,7 +24,7 @@ unsigned int Citizen::_count_day = 0;
                 buy_home();
             }
             
-            pay_daily_expenses();
+            pay_daily_expenses(_count_day);
 
         }
 
@@ -73,7 +73,7 @@ unsigned int Citizen::_count_day = 0;
             _add_money(money);
             _increase_happiness(20);
         }
-        void Citizen::pay_daily_expenses()
+        void Citizen::pay_daily_expenses(const int& _count_day)
         {
             if(_home)
             {
@@ -104,7 +104,7 @@ unsigned int Citizen::_count_day = 0;
         {
             return _profession;
         }
-        void Citizen::show_info() const
+        void Citizen::show_info(const int& _count_day) const
         {   
             #ifdef WIN32
             system("cls");
