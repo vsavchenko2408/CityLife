@@ -12,7 +12,7 @@
     unsigned int City::_average_happiness()
     {
         unsigned int happiness = 0;
-        for(auto i : citizens)
+        for(auto &i : citizens)
         {
             happiness += i.get_happiness();
         }

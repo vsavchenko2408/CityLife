@@ -7,7 +7,7 @@
 class City
 {
     private:
-        unsigned int _day;
+        //unsigned int _day;
         std::vector <Citizen> citizens;
         void _update_tick();
         unsigned int _average_happiness();

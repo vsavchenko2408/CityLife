@@ -125,7 +125,7 @@ unsigned int Citizen::_counter = 0;
         //private
         void Citizen::_decrease_happiness(short int decrease)
         {
-            if((_happiness - decrease) > 0)
+            if((_happiness - decrease) >= 0)
             {
                 _happiness -= decrease;
             }
@@ -143,7 +143,7 @@ unsigned int Citizen::_counter = 0;
         }
         void Citizen::_spend_money(short int spend_money)
         {
-            if((_money - spend_money) > 0)
+            if((_money - spend_money) >= 0)
             {
                 _money -= spend_money;
             }

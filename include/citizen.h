@@ -8,7 +8,7 @@ enum Profession
     doctor, 
     engeneer
 };
-
+ 
 class Citizen
 {
     private:
