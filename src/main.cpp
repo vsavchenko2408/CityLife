@@ -12,6 +12,6 @@ int main()
     c.add_citizen();
     }
     c.run(200);
-    c.print_report();
+    //c.print_report();
 
 }

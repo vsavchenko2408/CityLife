@@ -149,9 +149,13 @@ unsigned int Citizen::_counter = 0;
             }
         }
     //constr
-        Citizen::Citizen() : _id(_counter + 1), _age(18), _money(100), _happiness(50), _profession(engeneer), _job(true), _home(false)
+        Citizen::Citizen() : _id(_counter + 1), _happiness(50), _profession(engeneer)
         {
             ++_counter;
+            _age = rand()% 50;
+            _money = rand()%1000;
+            _job = rand()%2;
+            _home = rand()%2;
         }
 
         Citizen::~Citizen()

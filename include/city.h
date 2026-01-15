@@ -11,6 +11,9 @@ class City
         std::vector <Citizen> citizens;
         void _update_tick();
         unsigned int _average_happiness();
+        unsigned int _is_employed() const;
+        unsigned int _has_home() const;
+        unsigned long int _average_money() const;
     public:
 
     static unsigned int _count_day; 
