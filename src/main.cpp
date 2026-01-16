@@ -2,6 +2,7 @@
 #include <thread> 
 #include "../include/citizen.h"
 #include "../include/city.h"
+#include "../include/event.h"
 
 int main()
 {

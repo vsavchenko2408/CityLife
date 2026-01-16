@@ -4,6 +4,7 @@
 #include <iostream>
 #include "citizen.h"
 
+
 class City
 {
     private:
