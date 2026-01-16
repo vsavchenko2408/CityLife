@@ -1,5 +1,7 @@
 #include "../../include/city.h"
 #include <thread>
+    //global
+    unsigned int _count_day = 0; 
     //private
     void City::_update_tick()
     {
@@ -16,7 +18,7 @@
         {
             happiness += i.get_happiness();
         }
-        if(happiness > 0)
+        if(citizens.size() > 0)
         {
         return happiness / citizens.size();
         }
@@ -52,14 +54,20 @@
         unsigned long int City::_average_money() const
         {
             unsigned long int money = 0;
+            if(citizens.size() > 0)
+            {
             for(auto &i : citizens)
             {
                 money += i.get_money();
             }
             return money / citizens.size();
+            }
+            else
+            {
+                return 0;
+            }
         }
     //public
-    unsigned int City::_count_day = 0;
     void City::add_citizen()
     {
         citizens.push_back(Citizen());
@@ -69,7 +77,7 @@
         for(size_t i = 0; i < days_for_run; i++)
         {
             _update_tick();
-            if(i%30 == 0)
+            if(_count_day%30 == 0)
             {
                 print_report();
             }

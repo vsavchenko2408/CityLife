@@ -16,7 +16,7 @@ class City
         unsigned long int _average_money() const;
     public:
 
-    static unsigned int _count_day; 
+
     void add_citizen();
     void run(unsigned int);
     void print_report();
