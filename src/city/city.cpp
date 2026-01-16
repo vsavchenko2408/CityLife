@@ -6,6 +6,10 @@
     void City::_update_tick()
     {
         _count_day++;
+        for(int i = 0; i < rand()%5; i++)
+        {
+        citizens.push_back(Citizen());
+        }
         for( auto &i : citizens)
         {
             i.update_tick(_count_day);
@@ -84,6 +88,7 @@
             std::this_thread::sleep_for(std::chrono::milliseconds(50));
         }
     }
+
     void City::print_report()
     {
         std::cout << "++++++++++++++++++++++++++++++++++++" << std::endl;
