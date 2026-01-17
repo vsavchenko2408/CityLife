@@ -6,6 +6,7 @@
 
 int main()
 {
+    unsigned int _count_day = 0; 
     srand(time(NULL));
     City c;
     c.run(200);

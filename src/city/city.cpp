@@ -1,7 +1,8 @@
 #include "../../include/city.h"
 #include <thread>
+
     //global
-    unsigned int _count_day = 0; 
+    extern unsigned int _count_day; 
     //private
     void City::_update_tick()
     {
