@@ -2,11 +2,13 @@
 #include <thread>
 
     //global
-    extern unsigned int _count_day; 
+    unsigned int _count_day = 0; 
     //private
     void City::_update_tick()
     {
         _count_day++;
+
+        
         for(int i = 0; i < rand()%5; i++)
         {
         citizens.push_back(Citizen());
