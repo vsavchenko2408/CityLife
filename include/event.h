@@ -15,7 +15,7 @@ struct EventEffect
     int money_delta;
     EventEffect(int happy, int money) : happiness_delta(happy), money_delta(money)
     {
-
+        
     }
 };
 

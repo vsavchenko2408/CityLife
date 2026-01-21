@@ -1,4 +1,5 @@
 #include "../../include/citizen.h"
+#include "../../include/event.h"
 #include <iostream>
 unsigned int Citizen::_counter = 0;
 
@@ -29,9 +30,24 @@ unsigned int Citizen::_counter = 0;
         }
 
 
-        void Citizen::apply_event_effect()
+        void Citizen::apply_event_effect(const EventEffect& effect)
         {
-
+            if(effect.happiness_delta > 0)
+            {
+                _increase_happiness(effect.happiness_delta);
+            }
+            else if(effect.happiness_delta < 0)
+            {
+                _decrease_happiness(-effect.happiness_delta);
+            }
+            if(effect.money_delta > 0)
+            {
+                _add_money(effect.money_delta);
+            }
+            else if(effect.money_delta < 0)
+            {
+                _spend_money(-effect.money_delta);
+            }
         }
     //job
         void Citizen::assign_job(short job_id)

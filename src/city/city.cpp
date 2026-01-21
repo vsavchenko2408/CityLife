@@ -2,12 +2,12 @@
 #include <thread>
 
     //global
-    unsigned int _count_day = 0; 
+
     //private
     void City::_update_tick()
     {
-        _count_day++;
-
+        _day++;
+        _process_event_for_day();
         
         for(int i = 0; i < rand()%5; i++)
         {
@@ -15,9 +15,35 @@
         }
         for( auto &i : citizens)
         {
-            i.update_tick(_count_day);
+            i.update_tick(_day);
         }
     }
+
+
+
+    void City::_process_event_for_day()
+    {
+
+        for(auto &i : events)
+        {
+            int percent = rand()%100;
+            #ifdef DEBUG
+            std::cout << "Event: " << i.get_name() << " and: " << i.get_chance_percent() << std::endl;
+            #endif
+            if(percent < i.get_chance_percent())
+            {
+                if(i.get_target() == all)
+                {
+                    for(auto &x : citizens)
+                    {
+                        x.apply_event_effect(i.get_effect());
+                    }
+                }
+                std::cout << "Day: " << _day << ": " << i.get_name() << std::endl;
+            }
+        }
+    }
+
     unsigned int City::_average_happiness()
     {
         unsigned int happiness = 0;
@@ -84,7 +110,7 @@
         for(size_t i = 0; i < days_for_run; i++)
         {
             _update_tick();
-            if(_count_day%30 == 0)
+            if(_day%30 == 0)
             {
                 print_report();
             }
@@ -94,9 +120,17 @@
 
     void City::print_report()
     {
+ /*       
+    #ifdef WIN32
+    system("cls");
+    #endif
+    #ifdef linux
+    system("clear");
+    #endif
+*/
         std::cout << "++++++++++++++++++++++++++++++++++++" << std::endl;
         std::cout << "City report: " << std::endl;
-        std::cout << "Days life: " << _count_day << std::endl;
+        std::cout << "Days life: " << _day << std::endl;
         std::cout << "Population: " << citizens.size() << std::endl;
         std::cout << "Employed: " << _is_employed() << std::endl;
         std::cout << "Haused: " << _has_home() << std::endl;

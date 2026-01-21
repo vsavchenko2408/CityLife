@@ -1,6 +1,7 @@
 #ifndef CITIZEN_H
 #define CITIZEN_H
 
+#include "event.h"
 
 enum Profession
 {
@@ -28,7 +29,7 @@ class Citizen
         static unsigned int _counter;
  
         void update_tick(const int& _count_day);
-        void apply_event_effect();
+        void apply_event_effect(const EventEffect& effect);
     //job
         void assign_job(short job_id);
         void remove_job();
