@@ -91,3 +91,21 @@ cmake ..
 make
 ./CityLife
 
+## UML
+main.cpp
+   |
+   v
+ City
+   |
+   +--> citizens : vector<Citizen>
+   |
+   +--> events   : vector<Event>
+   |
+   +--> run(days)
+          |
+          +--> _update_tick()
+          |      |
+          |      +--> _process_event_for_day()
+          |      +--> Citizen::update_tick(...)
+          |
+          +--> print_report()
