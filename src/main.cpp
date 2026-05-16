@@ -7,14 +7,14 @@
 int main()
 {
     srand(time(nullptr));
-    City c;
+    City c; //main city
     #ifdef WIN32
     system("cls");
     #endif
     #ifdef linux
     system("clear");
     #endif
-    c.run(20000);
+    c.run(2000); //run game
 
     //c.print_report();
 

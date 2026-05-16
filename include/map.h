@@ -5,6 +5,8 @@
 
 class Map
 {
+    char map[50][50];
+    
 
 };
 

@@ -10,9 +10,9 @@ class City
 {
     private:
         //unsigned int _day;
-        std::vector <Citizen> citizens;
-        std::vector <Event> events;
-        void _update_tick();
+        std::vector <Citizen> citizens; //citizens
+        std::vector <Event> events; //events
+        void _update_tick(); 
         void _process_event_for_day();
         unsigned int _average_happiness();
         unsigned int _is_employed() const;
@@ -28,7 +28,7 @@ class City
         events.push_back(Event("Fire", 1,10, Percent, {-50, -50} ));
     }
     void add_citizen();
-    void run(unsigned int);
+    void run(unsigned int); //run game(how many days)
     void print_report();
 
 };
