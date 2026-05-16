@@ -14,7 +14,7 @@ int main()
     #ifdef linux
     system("clear");
     #endif
-    c.run(200);
+    c.run(20000);
 
     //c.print_report();
 
